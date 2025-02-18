@@ -18,9 +18,7 @@ export const useBlog = ({ id }: { id: string }) => {
 
     useEffect(() => {
         axios.get(`${BACKEND_URL}/blog/blogid/${id}`, {
-            headers: {
-                token: localStorage.getItem("token")
-            }
+          withCredentials:true
         },
     )
             .then(response => {
@@ -42,9 +40,7 @@ export const useBlogs = () => {
 
     useEffect(() => {
         axios.get(`${BACKEND_URL}/blog/bulk`, {
-            headers: {
-                token: localStorage.getItem("token")
-            }
+            withCredentials:true
         })
             .then(response => {
                 setBlogs(response.data.blog);
