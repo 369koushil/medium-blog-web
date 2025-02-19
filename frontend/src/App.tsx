@@ -4,12 +4,14 @@ import { Signin } from './pages/Signin'
 import { Blog } from './pages/Blog'
 import { Blogs } from "./pages/Blogs";
 import { Publish } from './pages/Publish';
-
+import Wrapper from './Wrapper';
 function App() {
 
   return (
     <>
-      <BrowserRouter>
+     
+     <BrowserRouter>
+     <Wrapper>
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
@@ -17,6 +19,7 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/publish" element={<Publish />} />
         </Routes>
+        </Wrapper>
       </BrowserRouter>
     </>
   )

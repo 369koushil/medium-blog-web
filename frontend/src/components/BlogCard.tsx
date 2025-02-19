@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 interface BlogCardProps {
-    authorName: string;
+    email: string;
     title: string;
     content: string;
     publishedDate: string;
@@ -9,7 +9,7 @@ interface BlogCardProps {
 
 export const BlogCard = ({
     id,
-    authorName,
+    email,
     title,
     content,
     publishedDate
@@ -17,8 +17,8 @@ export const BlogCard = ({
     return <Link to={`/blog/${id}`}>
         <div className="p-4 border-b border-slate-200 pb-4 w-screen max-w-screen-md cursor-pointer">
             <div className="flex">
-                <Avatar name={authorName} />
-                <div className="font-extralight pl-2 text-sm flex justify-center flex-col">{authorName}</div>
+                <Avatar name={email.split("")[0]} />
+                <div className="font-extralight pl-2 text-sm flex justify-center flex-col">{email.split("@")[0]}</div>
                 <div className="pl-2 flex justify-center flex-col">
                     <Circle />
                 </div>
@@ -48,7 +48,8 @@ export function Circle() {
 export function Avatar({ name, size = "small" }: { name: string, size?: "small" | "big" }) {
     return <div className={`relative inline-flex items-center justify-center overflow-hidden bg-gray-600 rounded-full ${size === "small" ? "w-6 h-6" : "w-10 h-10"}`}>
     <span className={`${size === "small" ? "text-xs" : "text-md"} font-extralight text-gray-600 dark:text-gray-300`}>
-        {name[0]}
+        {name}
     </span>
 </div>
 }
+
